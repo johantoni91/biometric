@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.outfit {
+  font-family: "Outfit", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input::placeholder{
+  color: oklch(0.707 0.022 261.325);
+  font-size: 0.875rem;
+  line-height: calc(1.25 / 0.875);
+}
