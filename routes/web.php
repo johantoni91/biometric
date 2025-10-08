@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BackupController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrainingSupport;
 use App\Http\Controllers\UserController;
@@ -22,10 +21,25 @@ Route::middleware('auth')->group(function () {
     // TRAINING SUPPORT
     Route::resource('training-support', TrainingSupport::class);
 
-    // BACKUP MANAGER
-    Route::get('/backup', [BackupController::class, 'index'])->name('backup.index');
-    Route::post('/backup/create', [BackupController::class, 'create'])->name('backup.create');
-    Route::get('/backup/download/{file}', [BackupController::class, 'download'])->name('backup.download');
-    Route::post('/backup/restore/{file}', [BackupController::class, 'restore'])->name('backup.restore');
-    Route::delete('/backup/{file}', [BackupController::class, 'destroy'])->name('backup.destroy');
+    Route::group(
+        [
+            'prefix' => config('backupmanager.route', 'backupmanager')
+        ],
+        function () {
+            // list backups
+            Route::get('/', 'BackupManagerController@index')->name('backupmanager');
+
+            // create backups
+            Route::post('create', 'BackupManagerController@createBackup')->name('backupmanager_create');
+
+            // restore/delete backups
+            Route::post(
+                'restore_delete',
+                'BackupManagerController@restoreOrDeleteBackups'
+            )->name('backupmanager_restore_delete');
+
+            // download backup
+            Route::get('download/{file}', 'BackupManagerController@download')->name('backupmanager_download');
+        }
+    );
 });

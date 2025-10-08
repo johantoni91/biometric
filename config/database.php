@@ -44,14 +44,8 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'dump' => [
-                'dump_binary_path' => '/opt/homebrew/bin', // path mysqldump kamu
-                'use_single_transaction',
-                'timeout' => 60 * 5,
-                'extra_options' => '--column-statistics=0',
-            ],
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', null),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'laravel'),
             'username' => env('DB_USERNAME', 'root'),

@@ -21,12 +21,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
 			rel="stylesheet" />
 
-		{{-- Datatable --}}
-		<link href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css"
-			rel="stylesheet">
-		<link href="https://cdn.datatables.net/2.3.4/css/dataTables.tailwindcss.css">
-		<script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
-
 		{{-- flowbite --}}
 		<link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
 			rel="stylesheet" />
@@ -45,10 +39,7 @@
 
 		{{-- Jquery --}}
 		<script src="{{ asset("assets/js/jquery-3.7.1.min.js") }}"></script>
-
-		{{-- Chart --}}
-		<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.46.0/dist/apexcharts.min.js"></script>
-
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		{{-- Toggle theme Darklight --}}
 		<script>
 			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
@@ -58,6 +49,7 @@
 				document.documentElement.classList.remove('dark')
 			}
 		</script>
+		@stack("styles")
 	</head>
 
 	<body class="outfit h-full w-full bg-gray-100 dark:bg-gray-900 dark:text-white"
@@ -116,6 +108,7 @@
 				}
 			}
 		</script>
+		@stack("scripts")
 	</body>
 
 </html>
