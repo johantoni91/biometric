@@ -1,6 +1,5 @@
 @extends("layouts.app")
 @section("content")
-	@vite("resources/js/chart.js")
 	<div class="grid grid-cols-12 gap-3">
 		<div class="col-span-12 xl:col-span-7">
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-2">
