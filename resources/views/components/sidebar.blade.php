@@ -102,7 +102,7 @@
 		<li>
 			<a
 				class="{{ request()->routeIs("backup.index") ? "bg-blue-100 text-blue-700 dark:bg-gray-700" : "" }} flex w-full flex-row items-center justify-between gap-3 rounded-md p-2 text-sm font-normal hover:bg-blue-100 hover:text-blue-700 dark:hover:bg-gray-700"
-				href="{{ route("backup.index") }}">
+				href="{{ route("backupmanager") }}">
 				<div class="flex items-center gap-3">
 					<span class="material-symbols-outlined">
 						backup

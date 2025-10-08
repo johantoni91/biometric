@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BackupController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrainingSupport;
 use App\Http\Controllers\UserController;
@@ -23,23 +24,23 @@ Route::middleware('auth')->group(function () {
 
     Route::group(
         [
-            'prefix' => config('backupmanager.route', 'backupmanager')
+            'prefix' => 'backupmanager'
         ],
         function () {
             // list backups
-            Route::get('/', 'BackupManagerController@index')->name('backupmanager');
+            Route::get('/', [BackupController::class, 'index'])->name('backupmanager');
 
             // create backups
-            Route::post('create', 'BackupManagerController@createBackup')->name('backupmanager_create');
+            Route::post('create', [BackupController::class, 'createBackup'])->name('backupmanager_create');
 
             // restore/delete backups
             Route::post(
                 'restore_delete',
-                'BackupManagerController@restoreOrDeleteBackups'
+                [BackupController::class, 'restoreOrDeleteBackups']
             )->name('backupmanager_restore_delete');
 
             // download backup
-            Route::get('download/{file}', 'BackupManagerController@download')->name('backupmanager_download');
+            Route::get('download/{file}', [BackupController::class, 'download'])->name('backupmanager_download');
         }
     );
 });
