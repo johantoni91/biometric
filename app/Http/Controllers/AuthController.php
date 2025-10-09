@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -30,6 +31,7 @@ class AuthController extends Controller
         // 🔹 3. Login
         if (!Auth::attempt($request->only('nip', 'password'), $request->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey($request)); // tambah hit
+            Alert::error('Gagal', 'NIP atau password salah.');
             throw ValidationException::withMessages([
                 'nip' => 'NIP atau password salah.',
             ]);

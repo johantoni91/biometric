@@ -42,6 +42,7 @@
 	<body class="outfit relative h-screen w-screen bg-gray-100 text-sm font-thin dark:bg-gray-900 dark:text-white">
 		<main class="grid h-full w-full grid-cols-12">
 			<div class="col-span-12 m-auto w-full px-12 lg:col-span-6">
+				@include("sweetalert::alert")
 				@yield("auth")
 			</div>
 			<div class="hidden lg:col-span-6 lg:block">

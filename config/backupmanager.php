@@ -16,8 +16,8 @@ return [
     #-------------------------------------------------------------------
     # define binary paths
     'paths' => [
-        'mysql' => '/Applications/XAMPP/xamppfiles/bin/mysql',
-        'mysqldump' => '/Applications/XAMPP/xamppfiles/bin/mysqldump',
+        'mysql' => 'mysql',
+        'mysqldump' => 'mysqldump',
         'tar' => 'tar',
         'zcat' => 'zcat',
     ],
