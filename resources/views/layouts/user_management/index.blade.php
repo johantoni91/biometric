@@ -5,40 +5,42 @@
 			<x-link url='{{ route("users.create") }}'
 				label='+ Tambah User' />
 		</div>
-		<form class="flex items-center justify-center gap-5"
+		<form class="flex flex-col gap-3 md:flex-row"
 			action="{{ route("users.search") }}"
 			method="GET">
 			<input
-				class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+				class="mb-2 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
 				id="name"
 				name="name"
 				type="text"
 				value="{{ request("name") }}"
 				placeholder="Nama" />
 			<input
-				class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+				class="mb-2 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
 				id="email"
 				name="email"
 				type="text"
 				value="{{ request("email") }}"
 				placeholder="Email" />
 			<input
-				class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+				class="mb-2 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
 				id="nip"
 				name="nip"
 				type="number"
 				value="{{ request("nip") }}"
 				placeholder="NIP" />
 			<input
-				class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+				class="mb-2 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
 				id="satker"
 				name="satker"
 				type="text"
 				value="{{ request("satker") }}"
 				placeholder="Satker" />
-			<button
-				class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-				type="submit">Cari</button>
+			<div class="flex justify-end">
+				<button
+					class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					type="submit">Cari</button>
+			</div>
 		</form>
 		<div class="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
 
@@ -106,24 +108,26 @@
 								<td class="px-6 py-4">
 									{{ $user->role }}
 								</td>
-								<td class="flex items-center justify-center gap-2 px-6 py-4">
-									<a
-										class="flex items-center justify-center gap-3 rounded-lg bg-blue-500 p-2 font-light text-white hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-600"
-										href="{{ $user->id == auth()->user()->id ? route("profile") : route("users.edit", Hashids::encode((string) $user["id"])) }}">
-										<span class="material-symbols-outlined">
-											edit
-										</span>
-										Ubah
-									</a>
-									<button
-										class="flex items-center justify-center gap-3 rounded-lg bg-red-500 p-2 font-light text-white hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600"
-										id="delete-user-{{ $user["id"] }}"
-										type="button">
-										<span class="material-symbols-outlined">
-											delete
-										</span>
-										Hapus
-									</button>
+								<td class="px-6 py-4">
+									<div class="flex items-center justify-center gap-2">
+										<a
+											class="flex items-center justify-center gap-3 rounded-lg bg-blue-500 p-2 font-light text-white hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-600"
+											href="{{ $user->id == auth()->user()->id ? route("profile") : route("users.edit", Hashids::encode((string) $user["id"])) }}">
+											<span class="material-symbols-outlined">
+												edit
+											</span>
+											Ubah
+										</a>
+										<button
+											class="flex items-center justify-center gap-3 rounded-lg bg-red-500 p-2 font-light text-white hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-600"
+											id="delete-user-{{ $user["id"] }}"
+											type="button">
+											<span class="material-symbols-outlined">
+												delete
+											</span>
+											Hapus
+										</button>
+									</div>
 
 									<form id="delete-form-{{ $user["id"] }}"
 										style="display: none;"

@@ -52,12 +52,18 @@
 		@stack("styles")
 	</head>
 
-	<body class="outfit h-full w-full bg-gray-100 dark:bg-gray-900 dark:text-white"
+	<body class="h-screen w-screen bg-gray-100 dark:bg-gray-900 dark:text-white"
 		x-data="{ sidebar: $persist(true) }">
 		@include("sweetalert::alert")
-		<div class="relative flex h-screen w-screen">
+		<div class="relative h-screen w-screen md:flex"
+			x-data="{
+    width: window.innerWidth,
+    updateWidth() { this.width = window.innerWidth }
+}"
+			x-init="window.addEventListener('resize', () => updateWidth())">
 			<x-sidebar />
-			<div class="flex h-full w-full flex-col">
+			<div class="flex h-full flex-col"
+				:class="sidebar ? 'w-screen overflow-hidden' : 'w-full'">
 				<x-navbar />
 				<main class="relative h-full w-full overflow-x-hidden overflow-y-scroll bg-gray-100 p-5 dark:bg-gray-900">
 					<x-breadcrumb />

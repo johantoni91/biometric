@@ -1,8 +1,20 @@
 <aside
-	class="md:w-54 h-full flex-col items-center gap-3 border-r border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900 md:flex"
+	class="flex h-full w-full flex-col items-center gap-3 border-r border-gray-200 bg-white px-4 pt-8 dark:border-gray-800 dark:bg-gray-900 md:w-auto"
 	x-show="sidebar"
-	x-transition.duration.600ms>
-	<div class="mb-5 flex items-center justify-center gap-3">
+	x-transition:enter="transition transform duration-300"
+	x-transition:enter-start="-translate-x-full"
+	x-transition:enter-end="translate-x-0"
+	x-transition:leave="transition transform duration-300"
+	x-transition:leave-start="translate-x-0"
+	x-transition:leave-end="-translate-x-full">
+	<button class="me-auto px-1 pt-1 dark:border-gray-700"
+		x-show="width <= 768"
+		@click="sidebar = !sidebar">
+		<span class="material-symbols-outlined">
+			sort
+		</span>
+	</button>
+	<div class="mb-5 flex w-full items-center justify-center gap-3">
 		{{-- <img class="rounded-lg"
 			src="{{ asset("images/monkey.jpeg") }}"
 			alt=""
