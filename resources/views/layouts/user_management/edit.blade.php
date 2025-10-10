@@ -67,7 +67,7 @@
 				<small class="text-red-500">{{ $message }}</small>
 			@enderror
 
-			<div class="my-5 grid grid-cols-12 gap-2">
+			<div class="my-3 flex flex-col gap-2 md:grid md:grid-cols-12">
 				<div class="col-span-3">
 					<label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
 						for="name">Nama</label>
@@ -132,7 +132,7 @@
 				</div>
 			</div>
 
-			<div class="grid grid-cols-12 gap-4">
+			<div class="flex flex-col gap-2 md:grid md:grid-cols-12">
 				<div class="col-span-6">
 					<label class="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
 						for="email">Email</label>
@@ -162,12 +162,11 @@
 				</div>
 			</div>
 
-			<div>
-				<x-link class="mt-6"
-					url='{{ route("users.index") }}'
+			<div class="mt-3 flex items-center justify-end gap-3">
+				<x-link url='{{ route("users.index") }}'
 					label="Kembali" />
 				<button
-					class="mt-6 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+					class="rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 					type="submit">Ubah</button>
 			</div>
 		</form>
