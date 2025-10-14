@@ -47,7 +47,7 @@
 			</div>
 			<div class="hidden lg:col-span-6 lg:block">
 				<img class="object-fit h-full w-full"
-					src="{{ asset("images/bg.jpg") }}"
+					src="{{ asset("images/24972.jpg") }}"
 					alt="">
 			</div>
 		</main>

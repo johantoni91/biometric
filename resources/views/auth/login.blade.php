@@ -35,8 +35,7 @@
 			<input class="w-full rounded-lg border border-gray-300 py-3 text-xs"
 				id="captcha"
 				name="captcha"
-				type="text"
-				placeholder="Masukkan NIP anda">
+				type="text">
 			<img class="mt-2"
 				class="h-auto object-cover"
 				src="{{ captcha_src("math") }}"
