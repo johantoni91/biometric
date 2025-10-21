@@ -40,16 +40,9 @@
 	</head>
 
 	<body class="outfit relative h-screen w-screen bg-gray-100 text-sm font-thin dark:bg-gray-900 dark:text-white">
-		<main class="grid h-full w-full grid-cols-12">
-			<div class="col-span-12 m-auto w-full px-12 lg:col-span-6">
-				@include("sweetalert::alert")
-				@yield("auth")
-			</div>
-			<div class="hidden lg:col-span-6 lg:block">
-				<img class="object-fit h-full w-full"
-					src="{{ asset("images/24972.jpg") }}"
-					alt="">
-			</div>
+		<main class="flex h-full w-full items-center justify-center rounded-lg">
+			@include("sweetalert::alert")
+			@yield("auth")
 		</main>
 		<div class="absolute bottom-4 right-4">
 			<x-toggle />

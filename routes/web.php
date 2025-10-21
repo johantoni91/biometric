@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('login', [AuthController::class, 'loginView'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login.post');
+Route::get('/refresh-captcha', function () {
+    return response()->json(['captcha' => captcha_img('flat')]);
+})->name('refresh.captcha');
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
