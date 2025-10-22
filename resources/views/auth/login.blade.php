@@ -4,7 +4,7 @@
 		class="h-full w-full grid-cols-8 bg-slate-50 p-5 dark:bg-slate-400 dark:text-black dark:shadow-blue-500 md:grid md:h-[70dvh] md:w-[80dvw] md:rounded-lg md:shadow-lg md:shadow-blue-400 lg:w-[70dvw] xl:w-[60dvw]">
 		<div class="col-span-4 rounded-lg md:h-full">
 			<img class="object-fit h-[35dvh] w-full rounded-lg md:h-full"
-				src="{{ asset("images/24972.jpg") }}"
+				src="{{ asset("images/24972.webp") }}"
 				alt="">
 		</div>
 		<div class="col-span-4 mt-5 flex flex-col gap-6 px-10 py-5">
